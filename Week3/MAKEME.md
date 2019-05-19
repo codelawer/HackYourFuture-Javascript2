@@ -86,18 +86,97 @@ threeFive(10, 15, sayThree, sayFive);
 > [Basic Algorithm Scripting: Repeat a String Repeat a String](https://www.freecodecamp.com/challenges/repeat-a-string-repeat-a-string)
 
 _2.3.1_: with a `for` loop.  
+```js
+function repeatStringNumTimes(str, num) {
+  var accumulatedStr = '';
+
+  for (num; num>0; num--)  {
+    accumulatedStr += str;
+  }
+
+  return accumulatedStr;
+}
+console.log(repeatStringNumTimes("abc", 3))
+```
+
 _2.3.2_: with a `while` loop.  
+```js
+function repeatStringNumTimes(str, num) {
+  var accumulatedStr = '';
+
+  while (num > 0) {
+    accumulatedStr += str;
+    num--;
+  }
+
+  return accumulatedStr;
+}
+```
+
 _2.3.3_: with a `do...while` loop.
+```js
+function repeatStringNumTimes(str, num) {
+  var accumulatedStr = '';
+
+  do  {
+    accumulatedStr += str;
+    num--
+  }
+  while (num > 0); 
+
+  return accumulatedStr;
+}
+console.log(repeatStringNumTimes("abc", 3))
+```
 
 **2.4** Some practice with objects:
 
-> [Object Oriented Programming: Define a Constructor Function](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/define-a-constructor-function)<br> > [Object Oriented Programming: Use a Constructor to Create Objects](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-a-constructor-to-create-objects)
+> [Object Oriented Programming: Define a Constructor Function](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/define-a-constructor-function)<br>
+```js
+function Dog() {
+  this.name = "Kucukucu";
+  this.color = "brown";
+  this.numLegs = 4;
+}
+```
 
+
+> [Object Oriented Programming: Use a Constructor to Create Objects](https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-a-constructor-to-create-objects)
+
+```js
+function Dog() {
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
+}
+
+// Add your code below this line
+let hound = new Dog();
+hound.color="yellow"
+console.log(hound.color)
+```
 **2.5** Nested loops
 
 > [Basic JavaScript: Nesting For Loops
 > ](https://www.freecodecamp.com/challenges/nesting-for-loops)
 
+```js
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+  for(var i=0; i < arr.length; i++){
+    for (var j=0; j < arr[i].length; j++){
+ //multiplyAll so that it multiplies the product variable by each number in the sub-arrays of arr    
+      product = product * arr[i][j];
+    }
+  }
+  // Only change code above this line
+  return product;
+}
+
+// Modify values below to test your code
+console.log(multiplyAll([[1,2],[3,4],[5,6,7]]));
+```
 **2.6** We did some work with arrays:
 
 ```js
@@ -156,6 +235,22 @@ const addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
 ```
+
+  >Solution 
+  ```js
+  var addSix = createBase(6);
+
+
+function createBase(num){
+    return function addSix(added){
+      return num + added
+    }
+}
+
+
+addSix(10); // returns 16
+addSix(21); // returns 27
+  ```
 
 **Bonus**: Write a function takes this array `['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c']` and returns an array which only has unique values in it (so it removes the duplicate ones). Make it a 'smart' algorithm that could do it for every array (only strings/number). Try to make it as fast as possible!
 
